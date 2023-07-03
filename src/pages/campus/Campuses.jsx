@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllCampusesThunk } from "../redux/campuses/campuses.actions"; 
-import CampusItemList from "../components/CampusItemList";
+import { fetchAllCampusesThunk } from "../../redux/campuses/campuses.actions"; 
+import CampusItemList from "../../components/CampusItemList";
 
 const Campuses = () => {
     const allCampuses = useSelector((state) => {

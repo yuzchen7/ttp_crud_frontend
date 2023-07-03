@@ -2,9 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { fetchSingleCampusThunk } from "../redux/campuses/campuses.actions";
+import { fetchSingleCampusThunk } from "../../redux/campuses/campuses.actions";
 import { Link } from "react-router-dom";
-import CampusSingleList from "../components/CampusSingleList";
+import CampusSingleList from "../../components/CampusSingleList";
 
 const CampusesSingleView = () => {
     const location = useLocation();
