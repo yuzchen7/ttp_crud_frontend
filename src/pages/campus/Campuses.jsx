@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../../redux/campuses/campuses.actions"; 
+import { Link } from "react-router-dom";
 import CampusItemList from "../../components/campus/CampusItemList";
 
 const Campuses = () => {
@@ -27,6 +28,9 @@ const Campuses = () => {
             <div>
                 <h1>Campuses Page</h1>
                 <CampusItemList data={allCampuses} />
+                <Link to='/campus_insert'>
+                    <button>insert new campus</button>
+                </Link>
             </div>
         </center>
         </>
