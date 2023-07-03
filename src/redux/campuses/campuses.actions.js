@@ -46,3 +46,26 @@ export const fetchSingleCampusThunk = (id) => {
         }
     };
 };
+
+
+// insert new data
+export const fetchInsertCampus = () => {
+    console.log("MESSAGE : FETCH INSERT NEW CAMPUS RECORD");
+    return {
+        type : Campuses_Action_type.FETCH_INSERT_CAMPUSES 
+    };
+};
+
+export const fetchInsertCampusThunk = (newCampus) => {
+    return async (dispatch) => {
+        try {
+            console.log("MESSAGE :", newCampus);
+            console.log("MEASSGE : fetch_Insert_Campus_Thunk is called");
+            await axios.post("http://localhost:8080/api/campuses/insertCampus", newCampus);
+            console.log("MEASSGE : fetch_Insert_Campus_Thunk is Completed");
+            dispatch(fetchInsertCampus());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
