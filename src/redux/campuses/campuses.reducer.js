@@ -1,7 +1,8 @@
 import Campuses_Action_type from './campuses.types'
 
 export const INITAL_CAMPUS_STATE = {
-    allCampuses : []
+    allCampuses : [],
+    singleCampus: []
 };
 
 export const campusesReducer = (state = INITAL_CAMPUS_STATE, {type, payload}) => {
@@ -11,6 +12,11 @@ export const campusesReducer = (state = INITAL_CAMPUS_STATE, {type, payload}) =>
             return {
                 ...state,
                 allCampuses : payload
+            }
+        case Campuses_Action_type.FETCH_SINGLE_CAMPUS : 
+            return {
+                ...state,
+                singleCampus : payload
             }
         default :
             return state
