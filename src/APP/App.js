@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "../pages/Home";
 import Students from "../pages/Students";
 import Campuses from "../pages/Campuses";
-import CampusesSingleView from "../pages/CampusesSingleView";
+import CampusesSingleView from "../pages/CampusSingleView";
 
 function App() {
   return (
