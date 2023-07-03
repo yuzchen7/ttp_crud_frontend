@@ -5,11 +5,16 @@ export default function StudentItemList(props) {
     props.data.map((student) => {
       return (
         <div id={student.id} key={`student${student.id}`} >
-          <hr />
-          first Name : {student.firstName} <br />
-          last Name : {student.lastName} <br />
-          email : {student.email} <br />
-          <img src={student.imageUrl} width='20px' />
+          <span width='50px'>
+            <img src={student.imageUrl} width='20px' />
+          </span>
+          <span>
+            <p>
+              first Name : {student.firstName} <br />
+              last Name : {student.lastName} <br />
+              email : {student.email} <br />
+            </p>
+          </span>
         </div>
       );
     })
