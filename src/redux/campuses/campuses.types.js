@@ -1,0 +1,7 @@
+const Campuses_Action_type = {
+    FETCH_ALL_CAMPUSES: 'FETCH_ALL_CAMPUSES',
+    FETCH_INSERT_CAMPUSES : 'FETCH_INSERT_CAMPUSES',
+    FETCH_DELETE_CAMPUSES : 'FETCH_DELETE_CAMPUSES'
+};
+
+export default Campuses_Action_type;
