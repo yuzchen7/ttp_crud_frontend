@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function CampusItemList(props) {
-    return props.data ? (
+    return props.data && props.data.length !== 0 ? (
         props.data.map((campus) => {
             return (
                 <div id={campus.id} key={`campus${campus.id}`} >
                     <span width='50px'>
-                        <Link to='/campuses_single_view' state={campus.id} > 
+                        <Link to='/campuses_single_view' state={campus} > 
                             <img src={campus.imageUrl} width='50px' />
                         </Link>
                     </span>
@@ -23,6 +23,9 @@ export default function CampusItemList(props) {
             );
         })
     ) : (
-        <h1>Loading...</h1>
+        <div>
+            <h1> There is not Student Data fount </h1>
+            <h1> or loading.... </h1>
+        </div>
     );
 };

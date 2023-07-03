@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function StudentItemList(props) {
-  return props.data ? (
+  return props.data.length !== 0 && props.data ? (
     props.data.map((student) => {
       return (
         <div id={student.id} key={`student${student.id}`} >
@@ -19,6 +19,9 @@ export default function StudentItemList(props) {
       );
     })
   ) : (
-    <h1>Loading...</h1>
+    <div>
+      <h1> There is not Student Data fount </h1>
+      <h1> or loading.... </h1>
+    </div>
   );
 }
