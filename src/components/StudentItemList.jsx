@@ -15,6 +15,7 @@ export default function StudentItemList(props) {
               email : {student.email} <br />
             </p>
           </span>
+          <hr />
         </div>
       );
     })

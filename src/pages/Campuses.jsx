@@ -26,9 +26,9 @@ const Campuses = () => {
         <center>
             <div>
                 <h1>Campuses Page</h1>
+                <CampusItemList data={allCampuses} />
             </div>
         </center>
-        <CampusItemList data={allCampuses} />
         </>
     );
 };
