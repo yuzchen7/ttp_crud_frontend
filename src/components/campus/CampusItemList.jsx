@@ -7,7 +7,7 @@ export default function CampusItemList(props) {
             return (
                 <div id={campus.id} key={`campus${campus.id}`} >
                     <span width='50px'>
-                        <Link to='/campuses_single_view' state={campus.id} > 
+                        <Link to='/campus_single_view' state={campus.id} > 
                             <img src={campus.imageUrl} width='50px' />
                         </Link>
                     </span>

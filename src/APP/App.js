@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 //3 mian pages
 import Home from "../pages/Home";
-import Students from "../pages/Students";
-import Campuses from "../pages/Campuses";
-import CampusesSingleView from "../pages/CampusSingleView";
+import Students from "../pages/student/Students";
+import Campuses from "../pages/campus/Campuses";
+import CampusesSingleView from "../pages/campus/CampusSingleView";
+import CampusEdit from '../pages/campus/CampusEdit';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/students" element={<Students />} />
           <Route path="/campuses" element={<Campuses />} />
-          <Route path="/campuses_single_view" element={<CampusesSingleView />} />
+          <Route path="/campus_single_view" element={<CampusesSingleView />} />
         </Routes>
       </Router>
     </div>
