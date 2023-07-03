@@ -9,7 +9,7 @@ export const studentReducer = (state = INITAL_STUDENT_STATE, {type, payload}) =>
     switch (type) {
         case Student_Action_type.FETCH_ALL_STUDENTS:
             return {
-              ...state,
+                ... state,
                 allStudents: payload
             }
         default:
