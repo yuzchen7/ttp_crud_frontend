@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchSingleCampusThunk } from "../../redux/campuses/campuses.actions";
 import { Link } from "react-router-dom";
-import CampusSingleList from "../../components/CampusSingleList";
+import CampusSingleList from "../../components/campus/CampusSingleList";
 
 const CampusesSingleView = () => {
     const location = useLocation();

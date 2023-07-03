@@ -1,5 +1,5 @@
 import React from "react";
-import StudentItemList from "./StudentItemList";
+import StudentItemList from "../student/StudentItemList";
 
 const CampusSingleList = (props) => {
     const singleCampus = props.data[0];

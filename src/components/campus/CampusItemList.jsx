@@ -19,6 +19,7 @@ export default function CampusItemList(props) {
                             Number of Students : {campus.studentsNum} <br />
                         </p>
                     </span>
+                    <hr />
                 </div>
             );
         })

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllStudentsThunk } from "../../redux/students/students.actions";
-import StudentItemList from "../../components/StudentItemList";
+import StudentItemList from "../../components/student/StudentItemList";
 
 const Students = () => {
     const allStudents = useSelector((state) => {
