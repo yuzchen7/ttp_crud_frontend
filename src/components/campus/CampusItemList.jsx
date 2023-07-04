@@ -19,6 +19,9 @@ export default function CampusItemList(props) {
                             Number of Students : {campus.studentsNum} <br />
                         </p>
                     </span>
+                    <Link to='/campus_edit' state={campus}>
+                        <button>Edit</button>
+                    </Link>
                     <hr />
                 </div>
             );
