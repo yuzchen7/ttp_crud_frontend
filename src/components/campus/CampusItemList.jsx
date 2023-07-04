@@ -1,14 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchDeleteCampusThunk } from "../../redux/campuses/campuses.actions";
 
 export default function CampusItemList(props) {
+    const dispatch = useDispatch();
+
+    const deleteCampus = async (e) => {
+        e.preventDefault();
+        const campus_id = document.getElementById('deleteBtn').value;
+        dispatch(fetchDeleteCampusThunk(campus_id));
+        var r = window.confirm('reload the page');
+        if (r === true) {
+            window.location.reload();
+        }
+    }
+
     return props.data && props.data.length !== 0 ? (
         props.data.map((campus) => {
             return (
                 <div id={campus.id} key={`campus${campus.id}`} >
                     <span width='50px'>
                         <Link to='/campus_single_view' state={campus.id} > 
-                            <img src={campus.imageUrl} width='50px' />
+                            <img src={campus.imageUrl} width='50px' alt="not found" />
                         </Link>
                     </span>
                     <span>
@@ -22,6 +36,7 @@ export default function CampusItemList(props) {
                     <Link to='/campus_edit' state={campus}>
                         <button>Edit</button>
                     </Link>
+                    <button id='deleteBtn' onClick={deleteCampus} value={campus.id} >Delete</button>
                     <hr />
                 </div>
             );

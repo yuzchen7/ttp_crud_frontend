@@ -91,3 +91,25 @@ export const fetchEditCampusThunk = (editCampus) => {
         }
     };
 };
+
+
+// delete campus reord
+export const fetchDeleteCampus = () => {
+    console.log("MESSAGE : FETCH DELETE CAMPUS RECORD");
+    return {
+        type : Campuses_Action_type.FETCH_DELETE_CAMPUSES
+    };
+};
+
+export const fetchDeleteCampusThunk = (id) => {
+    return async (dispatch) => {
+        try {
+            console.log("MEASSGE : fetch_Edit_Campus_Thunk is called");
+            await axios.delete('http://localhost:8080/api/campuses/deleteCampus?id=' + id);
+            console.log("MEASSGE : fetch_Edit_Campus_Thunk is Completed");
+            dispatch(fetchDeleteCampus());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
