@@ -59,11 +59,33 @@ export const fetchInsertCampus = () => {
 export const fetchInsertCampusThunk = (newCampus) => {
     return async (dispatch) => {
         try {
-            console.log("MESSAGE :", newCampus);
+            // console.log("MESSAGE :", newCampus);
             console.log("MEASSGE : fetch_Insert_Campus_Thunk is called");
             await axios.post("http://localhost:8080/api/campuses/insertCampus", newCampus);
             console.log("MEASSGE : fetch_Insert_Campus_Thunk is Completed");
             dispatch(fetchInsertCampus());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
+
+
+// edit campus data
+export const fetchEditCampus = () => {
+    console.log("MESSAGE : FETCH EDIT CAMPUS RECORD");
+    return {
+        type : Campuses_Action_type.FETCH_EDIT_CAMPUS
+    };
+};
+
+export const fetchEditCampusThunk = (editCampus) => {
+    return async (dispatch) => {
+        try {
+            console.log("MEASSGE : fetch_Edit_Campus_Thunk is called");
+            await axios.post('http://localhost:8080/api/campuses/editCampus', editCampus);
+            console.log("MEASSGE : fetch_Edit_Campus_Thunk is Completed");
+            dispatch(fetchEditCampus());
         } catch (err) {
             console.error(err);
         }
