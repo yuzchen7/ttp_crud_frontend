@@ -27,9 +27,10 @@ const CampusEdit = () => {
         };
 
         dispatch(fetchEditCampusThunk(editCampus));
-        console.log(editCampus);
-
-        window.location.href = '/campuses';
+        var r = window.confirm('back to campuses page...')
+        if (r === true) {
+            window.location.href = '/campuses';
+        }
     }
 
     return (
