@@ -64,3 +64,24 @@ export const fetchSingleStudentThunk = (studentId) => {
         }
     };
 };
+
+
+export const fetchInsertStudent = () => {
+    console.log("MESSAGE : FETCH Insert STUDENTS ACTION");
+    return {
+        type : Student_Action_type.FETCH_INSERT_STUDENT
+    };
+};
+
+export const fetchInsertStudentThunk = (insertStudent) => {
+    return async (dispatch) => {
+        try {
+            console.log("MEASSGE : fetch_Insert_Student_Thunk is called");
+            await axios.post('http://localhost:8080/api/students/insertStudent', insertStudent);
+            console.log("MEASSGE : fetch_Insert_Student_Thunk is Completed");
+            dispatch(fetchInsertStudent());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
