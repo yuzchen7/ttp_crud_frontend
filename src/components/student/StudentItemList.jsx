@@ -20,6 +20,9 @@ export default function StudentItemList(props) {
           <Link to='/student_single_view' state={student} >
             <button>Single View</button>
           </Link>
+          <Link to='/student_edit' state={student} >
+            <button>Edit</button>
+          </Link>
           <hr />
         </div>
       );
