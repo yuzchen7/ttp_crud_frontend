@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchDeleteStduentThunk } from "../../redux/students/students.actions";
 
 export default function StudentItemList(props) {
+  const dispatch = useDispatch();
+
+  const deleteStudent = (studentId) => {
+    console.log(studentId);
+    dispatch(fetchDeleteStduentThunk(studentId));
+
+    var r = window.confirm('reload page...');
+    if (r === true) {
+      window.location.reload();
+    }
+  };
+
   return props.data.length !== 0 && props.data ? (
     props.data.map((student) => {
       return (
@@ -23,6 +37,7 @@ export default function StudentItemList(props) {
           <Link to='/student_edit' state={student} >
             <button>Edit</button>
           </Link>
+          <button id='deleteBtn' onClick={(e) => {e.preventDefault(); deleteStudent(student.id)}}>Delete</button>
           <hr />
         </div>
       );
