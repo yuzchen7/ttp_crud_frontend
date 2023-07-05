@@ -1,8 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchDeleteCampusThunk } from "../../redux/campuses/campuses.actions";
 import StudentItemList from "../student/StudentItemList";
 
 const CampusSingleList = (props) => {
     const singleCampus = props.data[0];
+
+    const dispatch = useDispatch();
+
+    const deleteCampus = async (e) => {
+        e.preventDefault();
+        const campus_id = document.getElementById('deleteBtn').value;
+        dispatch(fetchDeleteCampusThunk(campus_id));
+        var r = window.confirm('reload the page');
+        if (r === true) {
+            window.location.reload();
+        }
+    }
+
     return singleCampus ? (
         <div>
             <div id={singleCampus.id} key={`campus${singleCampus.id}`} >
@@ -17,6 +33,10 @@ const CampusSingleList = (props) => {
                         Description : {singleCampus.description} <br />
                     </p>
                 </span>
+                <Link to='/campus_edit' state={singleCampus}>
+                    <button>Edit</button>
+                </Link>
+                <button id='deleteBtn' onClick={deleteCampus} value={singleCampus.id} >Delete</button>
             </div>
             <hr />
             <div>

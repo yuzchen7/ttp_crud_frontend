@@ -21,9 +21,7 @@ export default function CampusItemList(props) {
             return (
                 <div id={campus.id} key={`campus${campus.id}`} >
                     <span width='50px'>
-                        <Link to='/campus_single_view' state={campus.id} > 
-                            <img src={campus.imageUrl} width='50px' alt="not found" />
-                        </Link>
+                        <img src={campus.imageUrl} width='50px' alt="not found" />
                     </span>
                     <span>
                         <p>
@@ -33,6 +31,9 @@ export default function CampusItemList(props) {
                             Number of Students : {campus.studentsNum} <br />
                         </p>
                     </span>
+                    <Link to='/campus_single_view' state={campus.id} >
+                        <button>Single View</button>
+                    </Link>
                     <Link to='/campus_edit' state={campus}>
                         <button>Edit</button>
                     </Link>

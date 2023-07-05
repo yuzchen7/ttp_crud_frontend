@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function StudentItemList(props) {
   return props.data.length !== 0 && props.data ? (
@@ -15,6 +16,9 @@ export default function StudentItemList(props) {
               email : {student.email} <br />
             </p>
           </span>
+          <Link to='/student_single_view' state={student.id} >
+            <button>Single View</button>
+          </Link>
           <hr />
         </div>
       );
