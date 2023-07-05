@@ -41,7 +41,25 @@ const CampusSingleList = (props) => {
             <hr />
             <div>
                 <h5>Student details</h5>
-                <StudentItemList data={singleCampus.students}/>
+                {/* <StudentItemList data={singleCampus.students}/> */}
+                {
+                    singleCampus.students.map((student) => {
+                        return ( 
+                            <div id={student.id} key={`student${student.id}`} >
+                                <span width='50px'>
+                                    <img src={student.imageUrl} width='20px' />
+                                </span>
+                                <span>
+                                    <p>
+                                    first Name : {student.firstName} <br />
+                                    last Name : {student.lastName} <br />
+                                    email : {student.email} <br />
+                                    </p>
+                                </span>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     ) : (
