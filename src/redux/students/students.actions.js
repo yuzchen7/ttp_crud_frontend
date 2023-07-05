@@ -111,3 +111,25 @@ export const fetchEditStudentThunk = (editStudent) => {
         }
     };
 };
+
+
+// delete student info
+export const fetchDeleteStduent = () => {
+    console.log("MESSAGE : FETCH Delete STUDENTS ACTION");
+    return {
+        type : Student_Action_type.FETCH_DELETE_STUDENT
+    };
+};
+
+export const fetchDeleteStduentThunk = (studentId) => {
+    return async (dispatch) => {
+        try {
+            console.log("MEASSGE : fetch_Delete_Student_Thunk is called");
+            await axios.delete('http://localhost:8080/api/students/deleteStudent?id=' + studentId);
+            console.log("MEASSGE : fetch_Delete_Student_Thunk is Completed");
+            dispatch(fetchDeleteStduent());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
