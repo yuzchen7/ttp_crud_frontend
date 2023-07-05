@@ -2,6 +2,7 @@ import axios from "axios";
 
 import Student_Action_type from "./students.types";
 
+// get all students info
 export const fetchAllStudents = (payload) => {
     console.log("MESSAGE : FETCH ALL STUDENTS ACTION");
     return {
@@ -23,6 +24,8 @@ export const fetchAllStudentsThunk = () => {
     };
 }
 
+
+// enroll student campus
 export const fetchEnrollStudent = (payload) => {
     console.log("MESSAGE : FETCH ENROLL STUDENTS ACTION");
     return {
@@ -43,6 +46,7 @@ export const fetchEnrollStudentThunk = (updateData) => {
     };
 };
 
+//get single student info
 export const fetchSingleStudent = (payload) => {
     console.log("MESSAGE : FETCH Single STUDENTS ACTION");
     return {
@@ -65,7 +69,7 @@ export const fetchSingleStudentThunk = (studentId) => {
     };
 };
 
-
+// insert student
 export const fetchInsertStudent = () => {
     console.log("MESSAGE : FETCH Insert STUDENTS ACTION");
     return {
@@ -80,6 +84,28 @@ export const fetchInsertStudentThunk = (insertStudent) => {
             await axios.post('http://localhost:8080/api/students/insertStudent', insertStudent);
             console.log("MEASSGE : fetch_Insert_Student_Thunk is Completed");
             dispatch(fetchInsertStudent());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
+
+
+// update student info
+export const fetchEditStduent = () => {
+    console.log("MESSAGE : FETCH Edit STUDENTS ACTION");
+    return {
+        type : Student_Action_type.FETCH_EDIT_STUDENT
+    };
+};
+
+export const fetchEditStudentThunk = (editStudent) => {
+    return async (dispatch) => {
+        try {
+            console.log("MEASSGE : fetch_Edit_Student_Thunk is called");
+            await axios.post('http://localhost:8080/api/students/editStudent', editStudent);
+            console.log("MEASSGE : fetch_Edit_Student_Thunk is Completed");
+            dispatch(fetchEditStduent());
         } catch (err) {
             console.error(err);
         }
