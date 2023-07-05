@@ -9,6 +9,7 @@ import CampusesSingleView from "../pages/campus/CampusSingleView";
 import CampusInsert from '../pages/campus/CampusInsert';
 import CampusEdit from '../pages/campus/CampusEdit';
 import StudentSingleView from '../pages/student/StudentSingleView';
+import StudentInsert from '../pages/student/StudentInsert';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/campus_insert" element={<CampusInsert />} />
           <Route path="/campus_edit" element={<CampusEdit />} />
           <Route path="/student_single_view" element={<StudentSingleView />} />
+          <Route path="/student_insert" element={<StudentInsert />} />
         </Routes>
       </Router>
     </div>
