@@ -6,9 +6,7 @@ import { fetchDeleteCampusThunk } from "../../redux/campuses/campuses.actions";
 export default function CampusItemList(props) {
     const dispatch = useDispatch();
 
-    const deleteCampus = async (e) => {
-        e.preventDefault();
-        const campus_id = document.getElementById('deleteBtn').value;
+    const deleteCampus = async (campus_id) => {
         dispatch(fetchDeleteCampusThunk(campus_id));
         var r = window.confirm('reload the page');
         if (r === true) {
@@ -37,7 +35,7 @@ export default function CampusItemList(props) {
                     <Link to='/campus_edit' state={campus}>
                         <button>Edit</button>
                     </Link>
-                    <button id='deleteBtn' onClick={deleteCampus} value={campus.id} >Delete</button>
+                    <button id='deleteBtn' onClick={(e) => {e.preventDefault(); deleteCampus(campus.id)}}>Delete</button>
                     <hr />
                 </div>
             );
