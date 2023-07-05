@@ -14,9 +14,10 @@ export default function StudentItemList(props) {
               first Name : {student.firstName} <br />
               last Name : {student.lastName} <br />
               email : {student.email} <br />
+              Campus : {student.campus.name}
             </p>
           </span>
-          <Link to='/student_single_view' state={student.id} >
+          <Link to='/student_single_view' state={student} >
             <button>Single View</button>
           </Link>
           <hr />
