@@ -1,7 +1,8 @@
 import Student_Action_type from './students.types'
 
 export const INITAL_STUDENT_STATE = {
-    allStudents : []
+    allStudents : [],
+    singleStudent : {}
 };
 
 export const studentReducer = (state = INITAL_STUDENT_STATE, {type, payload}) => {
@@ -9,8 +10,13 @@ export const studentReducer = (state = INITAL_STUDENT_STATE, {type, payload}) =>
     switch (type) {
         case Student_Action_type.FETCH_ALL_STUDENTS:
             return {
-                ... state,
+                ...state,
                 allStudents: payload
+            }
+        case Student_Action_type.FETCH_SINGLE_STUDENT:
+            return {
+                ...state,
+                singleStudent : payload
             }
         default:
             return state;

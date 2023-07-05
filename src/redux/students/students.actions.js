@@ -18,7 +18,49 @@ export const fetchAllStudentsThunk = () => {
             console.log("MEASSGE : fetch_All_Students_Thunk is Completed");
             dispatch(fetchAllStudents(resp.data));
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 }
+
+export const fetchEnrollStudent = (payload) => {
+    console.log("MESSAGE : FETCH ENROLL STUDENTS ACTION");
+    return {
+        type : Student_Action_type.FETCH_ENROLL_STUDENT,
+    };
+};
+
+export const fetchEnrollStudentThunk = (updateData) => {
+    return async (dispatch) => {
+        try {
+            console.log("MEASSGE : fetch_Enroll_Student_Thunk is called");
+            const resp = await axios.post('http://localhost:8080/api/students/enrollCampusStuent', updateData);
+            console.log("MEASSGE : fetch_Enroll_Student_Thunk is Completed");
+            dispatch(fetchEnrollStudent(resp.data));
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
+
+export const fetchSingleStudent = (payload) => {
+    console.log("MESSAGE : FETCH Single STUDENTS ACTION");
+    return {
+        type : Student_Action_type.FETCH_SINGLE_STUDENT,
+        payload : payload
+    };
+};
+
+export const fetchSingleStudentThunk = (studentId) => {
+    return async (dispatch) => {
+        try {
+            console.log("MEASSGE : fetch_Single_Student_Thunk is called");
+            const resp = await axios.get('http://localhost:8080/api/students/findStudent?id=' + studentId);
+            console.log("MEASSGE : fetch_Single_Student_Thunk is Completed");
+            // console.log(resp.data);
+            dispatch(fetchSingleStudent(resp.data));
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
