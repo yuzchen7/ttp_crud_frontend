@@ -31,13 +31,17 @@ export default function StudentItemList(props) {
               Campus : {student.campus.name}
             </p>
           </span>
-          <Link to='/student_single_view' state={student} >
-            <button>Single View</button>
-          </Link>
-          <Link to='/student_edit' state={student} >
-            <button>Edit</button>
-          </Link>
-          <button id='deleteBtn' onClick={(e) => {e.preventDefault(); deleteStudent(student.id)}}>Delete</button>
+          <span>
+            <Link to='/student_edit' state={student} >
+              <button>Edit</button>
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <Link to='/student_single_view' state={student} >
+              <button>Single View</button>
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id='deleteBtn' onClick={(e) => {e.preventDefault(); deleteStudent(student.id)}}>Delete</button>
+          </span>
           <hr />
         </div>
       );
