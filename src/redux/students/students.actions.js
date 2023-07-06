@@ -59,7 +59,7 @@ export const fetchSingleStudentThunk = (studentId) => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_Single_Student_Thunk is called");
-            const resp = await axios.get('http://localhost:8080/api/students/findStudent?id=' + studentId);
+            const resp = await axios.get('https://ttp-crud-backend-green.vercel.app/api/students/findStudent?id=' + studentId);
             console.log("MEASSGE : fetch_Single_Student_Thunk is Completed");
             // console.log(resp.data);
             dispatch(fetchSingleStudent(resp.data));
@@ -81,7 +81,7 @@ export const fetchInsertStudentThunk = (insertStudent) => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_Insert_Student_Thunk is called");
-            await axios.post('http://localhost:8080/api/students/insertStudent', insertStudent);
+            await axios.post('https://ttp-crud-backend-green.vercel.app/api/students/insertStudent', insertStudent);
             console.log("MEASSGE : fetch_Insert_Student_Thunk is Completed");
             dispatch(fetchInsertStudent());
         } catch (err) {
@@ -103,7 +103,7 @@ export const fetchEditStudentThunk = (editStudent) => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_Edit_Student_Thunk is called");
-            await axios.post('http://localhost:8080/api/students/editStudent', editStudent);
+            await axios.post('https://ttp-crud-backend-green.vercel.app/api/students/editStudent', editStudent);
             console.log("MEASSGE : fetch_Edit_Student_Thunk is Completed");
             dispatch(fetchEditStduent());
         } catch (err) {
@@ -125,7 +125,7 @@ export const fetchDeleteStduentThunk = (studentId) => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_Delete_Student_Thunk is called");
-            await axios.delete('http://localhost:8080/api/students/deleteStudent?id=' + studentId);
+            await axios.delete('https://ttp-crud-backend-green.vercel.app/api/students/deleteStudent?id=' + studentId);
             console.log("MEASSGE : fetch_Delete_Student_Thunk is Completed");
             dispatch(fetchDeleteStduent());
         } catch (err) {

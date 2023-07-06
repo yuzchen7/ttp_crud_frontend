@@ -15,7 +15,7 @@ export const fetchAllCampusesThunk = () => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_All_Campuses_Thunk is called");
-            const resp = await axios.get('http://localhost:8080/api/campuses/');
+            const resp = await axios.get('https://ttp-crud-backend-green.vercel.app/api/campuses/');
             console.log("MEASSGE : fetch_All_Campuses_Thunk is Completed");
             dispatch(fetchAllCampuses(resp.data));
         } catch (err) {
@@ -38,7 +38,7 @@ export const fetchSingleCampusThunk = (id) => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_Single_Campus_Thunk is called");
-            const resp = await axios.get('http://localhost:8080/api/campuses/findCampus?id=' + id);
+            const resp = await axios.get('https://ttp-crud-backend-green.vercel.app/api/campuses/findCampus?id=' + id);
             console.log("MEASSGE : fetch_Single_Campus_Thunk is Completed");
             dispatch(fetchSingleCampus(resp.data));
         } catch (err) {
@@ -61,7 +61,7 @@ export const fetchInsertCampusThunk = (newCampus) => {
         try {
             // console.log("MESSAGE :", newCampus);
             console.log("MEASSGE : fetch_Insert_Campus_Thunk is called");
-            await axios.post("http://localhost:8080/api/campuses/insertCampus", newCampus);
+            await axios.post("https://ttp-crud-backend-green.vercel.app/api/campuses/insertCampus", newCampus);
             console.log("MEASSGE : fetch_Insert_Campus_Thunk is Completed");
             dispatch(fetchInsertCampus());
         } catch (err) {
@@ -83,7 +83,7 @@ export const fetchEditCampusThunk = (editCampus) => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_Edit_Campus_Thunk is called");
-            await axios.post('http://localhost:8080/api/campuses/editCampus', editCampus);
+            await axios.post('https://ttp-crud-backend-green.vercel.app/api/campuses/editCampus', editCampus);
             console.log("MEASSGE : fetch_Edit_Campus_Thunk is Completed");
             dispatch(fetchEditCampus());
         } catch (err) {
@@ -105,7 +105,7 @@ export const fetchDeleteCampusThunk = (id) => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_Edit_Campus_Thunk is called");
-            await axios.delete('http://localhost:8080/api/campuses/deleteCampus?id=' + id);
+            await axios.delete('https://ttp-crud-backend-green.vercel.app/api/campuses/deleteCampus?id=' + id);
             console.log("MEASSGE : fetch_Edit_Campus_Thunk is Completed");
             dispatch(fetchDeleteCampus());
         } catch (err) {
