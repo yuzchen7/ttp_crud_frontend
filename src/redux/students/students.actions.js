@@ -15,7 +15,7 @@ export const fetchAllStudentsThunk = () => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_All_Students_Thunk is called");
-            const resp = await axios.get('http://localhost:8080/api/students/');
+            const resp = await axios.get('https://ttp-crud-backend-green.vercel.app/api/students/');
             console.log("MEASSGE : fetch_All_Students_Thunk is Completed");
             dispatch(fetchAllStudents(resp.data));
         } catch (err) {
@@ -37,7 +37,7 @@ export const fetchEnrollStudentThunk = (updateData) => {
     return async (dispatch) => {
         try {
             console.log("MEASSGE : fetch_Enroll_Student_Thunk is called");
-            const resp = await axios.post('http://localhost:8080/api/students/enrollCampusStuent', updateData);
+            const resp = await axios.post('https://ttp-crud-backend-green.vercel.app/api/students/enrollCampusStuent', updateData);
             console.log("MEASSGE : fetch_Enroll_Student_Thunk is Completed");
             dispatch(fetchEnrollStudent(resp.data));
         } catch (err) {
