@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { fetchAllStudentsThunk } from "../../redux/students/students.actions";
 import StudentItemList from "../../components/student/StudentItemList";
 
+import "./css/Students.css";
+
 const Students = () => {
     const allStudents = useSelector((state) => {
         console.log("state : ", state.students.allStudents);
@@ -23,12 +25,15 @@ const Students = () => {
     }, []);
 
     return (
-        <div>
+        <div id='students_contents'>
             <h1>Student Page</h1>
+            <hr />
             <StudentItemList data={allStudents} />
+            <hr />
             <Link to='/student_insert'>
-                <button>insert new student</button>
+                <button class='button' id='students_insertbtn'>insert new student</button>
             </Link>
+            <br /> <br /> <br /> <br /> <br /> <br />
         </div>
     );
 };

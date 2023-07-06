@@ -4,6 +4,8 @@ import { fetchAllCampusesThunk } from "../../redux/campuses/campuses.actions";
 import { Link } from "react-router-dom";
 import CampusItemList from "../../components/campus/CampusItemList";
 
+import './css/Campuses.css';
+
 const Campuses = () => {
     const allCampuses = useSelector((state) => {
         console.log("state : ", state.campuses.allCampuses);
@@ -23,17 +25,18 @@ const Campuses = () => {
     }, []);
 
     return (
-        <>
-        <center>
-            <div>
-                <h1>Campuses Page</h1>
+        <div>
+            <h1>Campuses Page</h1>
+            <div id='campus_contents'>
+                <br /> <hr /> <br />
                 <CampusItemList data={allCampuses} />
+                <br /> <hr /> <br />
                 <Link to='/campus_insert'>
-                    <button>insert new campus</button>
+                    <button id='newinsertbtn' class='button'>insert new campus</button>
                 </Link>
             </div>
-        </center>
-        </>
+            <br /> <br /> <br /> <br /> <br /> <br />
+        </div>
     );
 };
 

@@ -1,7 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-//3 mian pages
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Nav } from 'react-bootstrap';
+
+//all pages
 import Home from "../pages/Home";
 import Students from "../pages/student/Students";
 import Campuses from "../pages/campus/Campuses";
@@ -16,15 +19,17 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <nav>
-          <center>
-            <Link to="/">Home</Link>
-            <br />
-            <Link to="/students">Students</Link>
-            <br />
-            <Link to="/campuses">Campuses</Link>
-          </center>
-        </nav>
+        <Nav id={'navbar'} fill className="justify-content-center" variant="underline">
+            <Nav.Item>
+              <Nav.Link class='navlink' href='/'>Home</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link class='navlink' href='/students'>Students</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link class='navlink' href='/campuses'>Campuses</Nav.Link>
+            </Nav.Item>
+        </Nav>
 
         <Routes>
           <Route path="/" element={<Home />} />

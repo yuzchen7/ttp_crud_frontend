@@ -3,6 +3,11 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchEditCampusThunk } from "../../redux/campuses/campuses.actions";
 
+import { Form } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
+
+import './css/CampusEdit.css'
+
 const CampusEdit = () => {
     const campus = useLocation().state;
     console.log(campus);
@@ -35,19 +40,36 @@ const CampusEdit = () => {
 
     return (
         <div>
-            <h1>Campus Edit Page</h1>
-            <form onSubmit={submit}>
-                <label>Campus ID : {campus.id} </label> <br />
-                <label>Name : </label>
-                <input id='name' type="text" required defaultValue={campus.name} /> <br />
-                <label>Address : </label>
-                <input id='address' type="text" required defaultValue={campus.address} /> <br />
-                <label>Image Url : </label>
-                <input id='imageUrl' type="text" defaultValue={campus.imageUrl} /> <br />
-                <label>Description : </label>
-                <input id='description' type="text" defaultValue={campus.description} /> <br />
-                <input type="submit" value='Edit' />
-            </form>
+            <h1>Campus Edit Page</h1> 
+            <br />
+            <div id='campus_edit_contents' >
+                <Form onSubmit={submit}>
+                    <Form.Group>
+                        <Form.Label id='campusID'>Campus ID : {campus.id} </Form.Label>
+                    </Form.Group>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>Name : </InputGroup.Text>
+                        <Form.Control id='name' class='inputcontents' type='text' required defaultValue={campus.name} />
+                    </InputGroup>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>Address : </InputGroup.Text>
+                        <Form.Control id='address' type="text" required defaultValue={campus.address} />
+                    </InputGroup>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>Image Url : </InputGroup.Text>
+                        <Form.Control id='imageUrl' type="text" defaultValue={campus.imageUrl} />
+                    </InputGroup>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>Description : </InputGroup.Text>
+                        <Form.Control id='description' type="text" defaultValue={campus.description} />
+                    </InputGroup>
+                    <br />
+                    <div>
+                        <input type="button" class='button' id='back' value='← Back' onClick={() => {window.history.back()}}/>
+                        <input type="submit" class='button' id='edit' value='Edit' />
+                    </div>
+                </Form>
+            </div>
         </div>
     );
 };

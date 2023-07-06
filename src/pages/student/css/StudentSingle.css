@@ -1,0 +1,23 @@
+#student_single_contents {
+    width: 70%;
+    margin: auto;
+}
+
+#singleStudent {
+    margin: auto;
+    width: 70em;
+}
+
+#student_single_img {
+    width: 10%;
+}
+
+#student_single_fullname {
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+#campus_chose_form {
+    width: 80%;
+    margin: auto;
+}

@@ -1,0 +1,62 @@
+#campus_contents {
+    width: 90%;
+    margin: auto;
+}
+
+.card img {
+    margin: auto;
+    margin-top: 0.5em;
+    width: 30%;
+}
+
+.button {
+    width: 6em;
+    font-size: 1.2em;
+    height: 2.5em;
+    border-radius : 1em;
+    border: none;
+    background-color: #e3f2fd;
+}
+
+.campusTitle {
+    font-size: 1.7em;
+    font-weight: 450;
+}
+
+.campusTitle:hover {
+    color: lightcoral;
+    font-weight: bolder;
+}
+
+.card-text .campusTitle {
+    text-align: left;
+}
+
+#campus_page_editbtn {
+    position: relative;
+    float: left;
+    margin: 0;
+}
+
+#campus_page_deleteBtn {
+    position: relative;
+    float: right;
+    margin: 0;
+}
+
+#newinsertbtn {
+    width: 13em;
+}
+
+#campusAddress:hover {
+    color: lightskyblue;
+}
+
+#campusDescription:hover {
+    color: lightsalmon;
+    font-weight: bolder;
+}
+
+#campusStudentNum:hover{
+    color: lightslategray;
+}

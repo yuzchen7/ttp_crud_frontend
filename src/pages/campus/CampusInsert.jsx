@@ -3,6 +3,11 @@ import { useDispatch } from "react-redux";
 import { fetchInsertCampusThunk } from "../../redux/campuses/campuses.actions";
 import { Link } from "react-router-dom";
 
+import { Form } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
+
+import "./css/CampusInsert.css";
+
 const CampusInsert = () => {
     const dispatch = useDispatch();
 
@@ -32,22 +37,32 @@ const CampusInsert = () => {
     };
 
     return (
-        <div>
+        <div id='campus_insert_contents' >
             <h1>Insert Campus Page</h1>
-            <form onSubmit={submition}>
-                <label>Name : </label>
-                <input id='name' type="text" required placeholder="name..." /> <br />
-                <label>Address : </label>
-                <input id='address' type="text" required placeholder="address..." /> <br />
-                <label>Image Url : </label>
-                <input id='imageUrl' type="text" placeholder="url..." /> <br />
-                <label>Description : </label>
-                <input id='description' type="text" placeholder="description..." /> <br />
-                <input type="submit" />
-            </form>
-            <Link to='/campuses'>
-                <button>return</button>
-            </Link>
+            <br />
+            <Form onSubmit={submition}>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>Name : </InputGroup.Text>
+                    <Form.Control id='name' class='inputcontents' type='text' placeholder="name" required />
+                </InputGroup>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>Address : </InputGroup.Text>
+                    <Form.Control id='address' class='inputcontents' type="text" required placeholder="address..." />
+                </InputGroup>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>Image Url : </InputGroup.Text>
+                    <Form.Control id='imageUrl' class='inputcontents' type="text" placeholder="url..." />
+                </InputGroup>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>Description : </InputGroup.Text>
+                    <Form.Control id='description' class='inputcontents' type="text" placeholder="description..." />
+                </InputGroup>
+                <br />
+                <div>
+                    <input type="button" class='button' id='back' value='← Back' onClick={() => {window.history.back()}}/>
+                    <input type="submit" class='button' id='edit_insertbtn' value='insert' />
+                </div>
+            </Form>
         </div>
     );
 };

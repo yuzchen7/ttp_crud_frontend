@@ -3,6 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../../redux/campuses/campuses.actions";
 import { fetchInsertStudentThunk } from "../../redux/students/students.actions";
 
+import { Form } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
+
+import './css/StudentInsert.css'
+
 const StudentInsert = () => {
     const allCampuses = useSelector((state) => {
         console.log("state : ", state.campuses.allCampuses);
@@ -41,33 +46,47 @@ const StudentInsert = () => {
     }
 
     return (
-        <div>
+        <div id='student_insert_contents'>
             <h1>Insert Student Page</h1>
-            <span>
-                <form onSubmit = {insertNewStudent}>
-                    <label>First Name : </label>
-                    <input id='fname' type="text" placeholder = "First Name..." required /><br/>
-                    <label>Last Name : </label>
-                    <input id='lname' type="text" placeholder = "Last Name..." required /><br/>
-                    <label>Email : </label>
-                    <input id='email' type="text" placeholder = "Email..." required /><br/>
-                    <label>GPA : </label>
-                    <input id='gpa' type="number" min="0" max="4" step = "0.01" placeholder = "GPA" /><br/>
-                    <label>Image URL : </label>
-                    <input id='imageUrl' type="text" placeholder = "Image Url..." /><br/>
-                    <label>Campus : </label>
-                    <select id="campusId" required>
+            <br />
+            <Form onSubmit = {insertNewStudent}>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>First Name : </InputGroup.Text>
+                    <Form.Control class='inputcontents' id='fname' type="text" placeholder = "First Name..." required />
+                </InputGroup>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>Last Name : </InputGroup.Text>
+                    <Form.Control class='inputcontents' id='lname' type="text" placeholder = "Last Name..." required />
+                </InputGroup>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>Email : </InputGroup.Text>
+                    <Form.Control class='inputcontents' id='email' type="text" placeholder = "Email..." required />
+                </InputGroup>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>GPA : </InputGroup.Text>
+                    <Form.Control class='inputcontents' id='gpa' type="number" min="0" max="4" step = "0.01" placeholder = "GPA" />
+                </InputGroup>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>Image URL : </InputGroup.Text>
+                    <Form.Control class='inputcontents' id='imageUrl' type="text" placeholder = "Image Url..." />
+                </InputGroup>
+                <InputGroup className='mb-3'>
+                    <InputGroup.Text>Campus : </InputGroup.Text>
+                    <Form.Select id="campusId" required>
                         <option> Select a Campus </option>
-                            {
-                                allCampuses.map((campus) => {
-                                    return <option key={`campus_${campus.id}`} value={campus.id}> {campus.name} </option>
-                                })
-                            }
-                    </select>
-                    <br />
-                    <input type="submit" value="Insert"/>
-                </form>
-            </span>
+                        {
+                            allCampuses.map((campus) => {
+                                return <option key={`campus_${campus.id}`} value={campus.id}> {campus.name} </option>
+                            })
+                        }
+                    </Form.Select>
+                </InputGroup>
+                <br />
+                <div>
+                    <input type="button" class='button' id='back' value='← Back' onClick={() => {window.history.back()}}/>
+                    <input type="submit" class='button' id='studnet_insertbtn' value="Insert"/> 
+                </div>
+            </Form>
         </div>
     );
 };

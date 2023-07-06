@@ -6,6 +6,8 @@ import { fetchSingleCampusThunk } from "../../redux/campuses/campuses.actions";
 import { Link } from "react-router-dom";
 import CampusSingleList from "../../components/campus/CampusSingleList";
 
+import "./css/CampusSingle.css"
+
 const CampusesSingleView = () => {
     const location = useLocation();
     const campus_id = location.state;
@@ -30,10 +32,16 @@ const CampusesSingleView = () => {
     return (
         <div>
             <h1>Single Campus View</h1>
-            <CampusSingleList data={campus_detail}/>
-            <Link to='/campuses'>
-                <button>return</button>
-            </Link>
+            <div id='single_campus_contents'>
+                <hr />
+                <CampusSingleList data={campus_detail}/>
+                <hr />
+                <br />
+                <div>
+                    <input type="button" class='button' id='singleview_campus_back' value='← Back' onClick={() => {window.history.back()}}/>
+                </div>
+                <br /> <br /> <br /> <br /> <br /> <br />
+            </div>
         </div>
     );
 

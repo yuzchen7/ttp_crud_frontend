@@ -1,0 +1,9 @@
+#student_edit_contents {
+    width: 60em;
+    margin: auto;
+}
+
+#studentID {
+    font-size: 1.7em;
+    color: lightcoral;
+}

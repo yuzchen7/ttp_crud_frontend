@@ -1,0 +1,40 @@
+#single_campus_contents {
+    width: 80%;
+    margin: auto;
+}
+
+#singleCampus {
+    font-size: larger;
+}
+
+.card-title {
+    font-size: larger;
+}
+
+.card img {
+    margin: auto;
+    margin-top: 0.5em;
+    width: 30%;
+}
+
+#campus_single_deleteBtn {
+    position: relative;
+    float: right;
+    margin-right: 20%;
+}
+
+#campus_single_editbtn {
+    position: relative;
+    float: left;
+    margin-left: 20%;
+}
+
+#singleview_insert_stu {
+    width: 10em;
+}
+
+/* #singleview_campus_back {
+    position: relative;
+    float: right;
+    margin-right: 20%;
+} */

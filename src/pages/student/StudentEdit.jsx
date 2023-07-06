@@ -1,9 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { fetchAllCampusesThunk } from "../../redux/campuses/campuses.actions";
 import { fetchEditStudentThunk } from "../../redux/students/students.actions";
+
+import { Form } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
+
+import './css/StudentEdit.css'
 
 const StudentEdit = () => {
     const student = useLocation().state;
@@ -50,38 +54,53 @@ const StudentEdit = () => {
     return (
         <div>
             <h1>Student Edit Page</h1>
-            <span>
-                <form onSubmit = {editStudent}>
-                    <label>First Name : </label>
-                    <input id='fname' type="text" defaultValue={student.firstName} required /><br/>
-                    <label>Last Name : </label>
-                    <input id='lname' type="text" defaultValue={student.lastName} required /><br/>
-                    <label>Email : </label>
-                    <input id='email' type="text" defaultValue={student.email} required /><br/>
-                    <label>GPA : </label>
-                    <input id='gpa' type="number" min="0" max="4" step = "0.01" defaultValue={student.gpa} /><br/>
-                    <label>Image URL : </label>
-                    <input id='imageUrl' type="text" defaultValue={student.imageUrl} /><br/>
-                    <label>Campus : </label>
-                    <select id="campusId" required>
-                        <option key={`campus_${studentCampus.id}`} value={studentCampus.id}> {studentCampus.name} </option>
-                        {
-                            allCampuses.map((campus) => {
-                                if (campus.name === studentCampus.name) {
-                                    return <></>
-                                }
-                                return <option key={`campus_${campus.id}`} value={campus.id}> {campus.name} </option>
-                            })
-                        }
-                    </select>
+            <br />
+            <div id='student_edit_contents' >
+                <Form onSubmit = {editStudent}>
+                    <Form.Group>
+                        <Form.Label id='studentID'>Student ID : {student.id}</Form.Label>
+                    </Form.Group>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>First Name : </InputGroup.Text>
+                        <Form.Control id='fname' type="text" defaultValue={student.firstName} required />
+                    </InputGroup>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>Last Name : </InputGroup.Text>
+                        <Form.Control id='lname' type="text" defaultValue={student.lastName} required />
+                    </InputGroup>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>Email : </InputGroup.Text>
+                        <Form.Control id='email' type="text" defaultValue={student.email} required />
+                    </InputGroup>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>GPA : </InputGroup.Text>
+                        <Form.Control id='gpa' type="number" min="0" max="4" step = "0.01" defaultValue={student.gpa} />
+                    </InputGroup>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>Image URL : </InputGroup.Text>
+                        <Form.Control id='imageUrl' type="text" defaultValue={student.imageUrl} />
+                    </InputGroup>
+                    <InputGroup className='mb-3'>
+                        <InputGroup.Text>Campus : </InputGroup.Text>
+                        <Form.Select id="campusId" required>
+                            <option key={`campus_${studentCampus.id}`} value={studentCampus.id}> {studentCampus.name} </option>
+                            {
+                                allCampuses.map((campus) => {
+                                    if (campus.name === studentCampus.name) {
+                                        return <></>
+                                    }
+                                    return <option key={`campus_${campus.id}`} value={campus.id}> {campus.name} </option>
+                                })
+                            }
+                        </Form.Select>
+                    </InputGroup>
                     <br />
-                    <input type="submit" value="Edit"/>
-                </form>
-                <hr />
-                <Link to='/students'>
-                    <button>return view all Student</button>
-                </Link>
-            </span>
+                    <div>
+                        <input type="button" class='button' id='back' value='← Back' onClick={() => {window.history.back()}}/>
+                        <input type="submit" class='button' id='edit' value="Edit"/>
+                    </div>
+                </Form>
+            </div>
         </div>
     );
 };

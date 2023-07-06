@@ -1,0 +1,27 @@
+#students_contents {
+    width: 90%;
+    margin: auto;
+}
+
+#students_editbtn {
+    position: relative;
+    float: left;
+    width: 3em;
+    margin-left: 0.5em;
+}
+
+#students_singlebtn {
+    position: relative;
+    margin: auto;
+}
+
+#students_deleteBtn {
+    position: relative;
+    float: right;
+    width: 4em;
+    margin-right: 0.5em;
+}
+
+#students_insertbtn {
+    width: 10em;
+}
