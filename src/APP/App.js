@@ -21,13 +21,16 @@ function App() {
       <Router>
         <Nav id={'navbar'} fill className="justify-content-center" variant="underline">
             <Nav.Item>
-              <Nav.Link class='navlink' href='/'>Home</Nav.Link>
+              {/* <Nav.Link class='navlink' href='/'>Home</Nav.Link> */}
+              <Link to='/'>Home</Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link class='navlink' href='/students'>Students</Nav.Link>
+              {/* <Nav.Link class='navlink' href='/students'>Students</Nav.Link> */}
+              <Link to='/students'>Students</Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link class='navlink' href='/campuses'>Campuses</Nav.Link>
+              {/* <Nav.Link class='navlink' href='/campuses'>Campuses</Nav.Link> */}
+              <Link to='/campuses'>Campuses</Link>
             </Nav.Item>
         </Nav>
 
